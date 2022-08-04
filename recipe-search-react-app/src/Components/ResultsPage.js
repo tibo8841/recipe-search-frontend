@@ -1,3 +1,7 @@
 export default function ResultsPage() {
-  return;
+  return (
+    <div>
+      <h1>returning results for</h1>
+    </div>
+  );
 }

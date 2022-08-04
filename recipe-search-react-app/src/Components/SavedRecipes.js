@@ -1,3 +1,7 @@
 export default function SavedRecipes() {
-  return;
+  return (
+    <div>
+      <h1>here are your saved recipes</h1>
+    </div>
+  );
 }

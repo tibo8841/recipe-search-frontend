@@ -1,6 +1,15 @@
 import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import Box from "@mui/system/Box";
+import Container from "@mui/material/Container";
 
 export default function HomePage() {
+  function handleSubmit(event) {
+    return;
+  }
+
   return (
     <div>
       <h1>this is the home page, do a search</h1>
@@ -17,6 +26,29 @@ export default function HomePage() {
           </a>
         </Grid>
       </Grid>
+      <Container maxWidth="md">
+        <h1>Search for a recipe!</h1>
+        <Box
+          component="form"
+          sx={{ alignItems: "center" }}
+          onSubmit={handleSubmit}
+        >
+          <TextField
+            id="search"
+            name="search"
+            placeholder="Search for ingredient or name of dish"
+            fullWidth
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <RestaurantIcon />
+                </InputAdornment>
+              ),
+              autoComplete: "off",
+            }}
+          />
+        </Box>
+      </Container>
     </div>
   );
 }

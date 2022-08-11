@@ -2,7 +2,7 @@ import "./App.css";
 import HomePage from "./Components/HomePage";
 import ResultsPage from "./Components/ResultsPage";
 import SavedRecipes from "./Components/SavedRecipes";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (

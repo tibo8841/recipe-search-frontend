@@ -4,10 +4,23 @@ import InputAdornment from "@mui/material/InputAdornment";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import Box from "@mui/system/Box";
 import Container from "@mui/material/Container";
+import DropDown from "./DropDown";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [cuisine, setCuisine] = useState("");
+  const [diet, setDiet] = useState("");
+
   function handleSubmit(event) {
     return;
+  }
+
+  function chooseCuisine(cuisine) {
+    setCuisine(cuisine.value);
+  }
+
+  function chooseDiet(diet) {
+    setDiet(diet.value);
   }
 
   return (
@@ -48,6 +61,22 @@ export default function HomePage() {
             }}
           />
         </Box>
+        <Grid container spacing={2} marginTop="1%">
+          <Grid item xs={3}>
+            <DropDown type="cuisine" selectType={chooseCuisine} />
+          </Grid>
+          <Grid item xs={3}>
+            <DropDown type="diet" selectType={chooseDiet} />
+          </Grid>
+          <Grid item xs={3}>
+            <DropDown />
+          </Grid>
+          <Grid item xs={3}>
+            <a href="/results">
+              <button className="link-button">Search</button>
+            </a>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );

@@ -8,11 +8,17 @@ import DropDown from "./DropDown";
 import { useState } from "react";
 
 export default function HomePage() {
+  const [searchTerm, setSearchTerm] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [diet, setDiet] = useState("");
 
-  function handleSubmit(event) {
-    return;
+  function handleSubmit() {
+    const params = new URLSearchParams({
+      search: searchTerm,
+      cuisine: cuisine,
+      diet: diet,
+    });
+    console.log(params.toString());
   }
 
   function chooseCuisine(cuisine) {
@@ -23,44 +29,30 @@ export default function HomePage() {
     setDiet(diet.value);
   }
 
+  function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
+  }
+
   return (
     <div>
-      <h1>this is the home page, do a search</h1>
-      <h3>or click buttons to go places</h3>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <a href="/results">
-            <button className="link-button">results</button>
-          </a>
-        </Grid>
-        <Grid item xs={6}>
-          <a href="/saved-recipes">
-            <button className="link-button">saved recipes</button>
-          </a>
-        </Grid>
-      </Grid>
       <Container maxWidth="md">
         <h1>Search for a recipe!</h1>
-        <Box
-          component="form"
-          sx={{ alignItems: "center" }}
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            id="search"
-            name="search"
-            placeholder="Search for ingredient or name of dish"
-            fullWidth
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <RestaurantIcon />
-                </InputAdornment>
-              ),
-              autoComplete: "off",
-            }}
-          />
-        </Box>
+        <TextField
+          id="search"
+          name="search"
+          placeholder="Search for ingredient or name of dish"
+          fullWidth
+          onChange={handleSearchChange}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <RestaurantIcon />
+              </InputAdornment>
+            ),
+            autoComplete: "off",
+          }}
+        />
+
         <Grid container spacing={2} marginTop="1%">
           <Grid item xs={3}>
             <DropDown type="cuisine" selectType={chooseCuisine} />
@@ -69,7 +61,7 @@ export default function HomePage() {
             <DropDown type="diet" selectType={chooseDiet} />
           </Grid>
           <Grid item xs={3}>
-            <DropDown />
+            <button onClick={handleSubmit}>test button</button>
           </Grid>
           <Grid item xs={3}>
             <a href="/results">

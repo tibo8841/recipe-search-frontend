@@ -16,3 +16,12 @@
 .link-button:hover {
   background-color: #7f7f7f;
 }
+
+.app-header {
+  display: flex;
+  height: 10vh;
+  padding: 1vh;
+  background-color: rgba(214, 159, 225, 0.297);
+  justify-content: center;
+  align-items: center;
+}

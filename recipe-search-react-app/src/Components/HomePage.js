@@ -13,11 +13,16 @@ export default function HomePage() {
   const [diet, setDiet] = useState("");
 
   function handleSubmit() {
-    const params = new URLSearchParams({
-      search: searchTerm,
-      cuisine: cuisine,
-      diet: diet,
-    });
+    const params = new URLSearchParams({});
+    if (searchTerm) {
+      params.append("search", searchTerm);
+    }
+    if (cuisine) {
+      params.append("cuisine", cuisine);
+    }
+    if (diet) {
+      params.append("diet", diet);
+    }
     console.log(params.toString());
   }
 

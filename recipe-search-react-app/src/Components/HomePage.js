@@ -6,11 +6,14 @@ import Box from "@mui/system/Box";
 import Container from "@mui/material/Container";
 import DropDown from "./DropDown";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [diet, setDiet] = useState("");
+
+  const navigate = useNavigate();
 
   function handleSubmit() {
     const params = new URLSearchParams({});
@@ -23,7 +26,7 @@ export default function HomePage() {
     if (diet) {
       params.append("diet", diet);
     }
-    console.log(params.toString());
+    navigate(`results?${params}`);
   }
 
   function chooseCuisine(cuisine) {
@@ -57,21 +60,17 @@ export default function HomePage() {
             autoComplete: "off",
           }}
         />
-
         <Grid container spacing={2} marginTop="1%">
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <DropDown type="cuisine" selectType={chooseCuisine} />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <DropDown type="diet" selectType={chooseDiet} />
           </Grid>
-          <Grid item xs={3}>
-            <button onClick={handleSubmit}>test button</button>
-          </Grid>
-          <Grid item xs={3}>
-            <a href="/results">
-              <button className="link-button">Search</button>
-            </a>
+          <Grid item xs={4}>
+            <button className="link-button" onClick={handleSubmit}>
+              Search
+            </button>
           </Grid>
         </Grid>
       </Container>

@@ -40,3 +40,10 @@
 .recipe-image {
   height: 200px;
 }
+
+.recipe-card {
+  border: 1px solid black;
+  height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}

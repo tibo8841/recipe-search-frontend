@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useState } from "react";
+import RecipeCard from "./RecipeCard";
 
 export default function CreateRecipe() {
   const [name, setName] = useState("");
@@ -119,6 +120,7 @@ export default function CreateRecipe() {
         ) : (
           <img className="recipe-image" src={imageLink} alt="recipe" />
         )}
+        <RecipeCard />
       </Container>
     </div>
   );

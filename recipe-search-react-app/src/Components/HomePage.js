@@ -2,7 +2,6 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import Box from "@mui/system/Box";
 import Container from "@mui/material/Container";
 import DropDown from "./DropDown";
 import { useState } from "react";

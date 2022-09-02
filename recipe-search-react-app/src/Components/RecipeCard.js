@@ -1,30 +1,52 @@
 import Grid from "@mui/material/Grid";
 
 export default function RecipeCard(props) {
-  const { name, recipeLink, imageLink, ingredients, cuisines, diets } = props;
+  const {
+    name,
+    recipeLink,
+    imageLink,
+    ingredients,
+    cuisines,
+    diets,
+    minsTaken,
+  } = props;
   return (
     <div className="recipe-card">
       <Grid container spacing={2}>
         <Grid item>
           <img
-            alt="complex"
-            src="https://images.kitchenstories.io/wagtailOriginalImages/R2568-photo-final-_0.jpg"
+            alt="recipe"
+            src={
+              imageLink
+                ? imageLink
+                : "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
+            }
             style={{ height: 200 }}
           />
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-              <p>Standard license</p>
-              <p>Full resolution 1920x1080 • JPEG</p>
-              <p>ID: 1030114</p>
+              <h2>{name ? name : "Name"}</h2>
+              <p>
+                Time: {minsTaken ? minsTaken : "??"} mins •{" "}
+                {cuisines ? cuisines : "Cuisine"}, {diets ? diets : "Diet"},{" "}
+                {ingredients ? ingredients : "Ingredient"}
+              </p>
+              <p>
+                {ingredients
+                  ? ingredients
+                  : "Ingredient, Ingredient, Ingredient"}
+              </p>
             </Grid>
             <Grid item>
-              <p>Remove</p>
+              <a href={recipeLink} target="_blank" rel="noreferrer">
+                {recipeLink ? recipeLink : "Link"}
+              </a>
             </Grid>
           </Grid>
           <Grid item>
-            <p>$19.00</p>
+            <p>❤️</p>
           </Grid>
         </Grid>
       </Grid>

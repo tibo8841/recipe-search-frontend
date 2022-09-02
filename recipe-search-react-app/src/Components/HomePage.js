@@ -28,6 +28,10 @@ export default function HomePage() {
     navigate(`results?${params}`);
   }
 
+  function navigateToCreateRecipe() {
+    navigate("create-recipe");
+  }
+
   function chooseCuisine(cuisine) {
     setCuisine(cuisine.value);
   }
@@ -72,6 +76,13 @@ export default function HomePage() {
             </button>
           </Grid>
         </Grid>
+        <button
+          className="link-button"
+          onClick={navigateToCreateRecipe}
+          style={{ marginTop: "5%" }}
+        >
+          Create New Recipe!
+        </button>
       </Container>
     </div>
   );

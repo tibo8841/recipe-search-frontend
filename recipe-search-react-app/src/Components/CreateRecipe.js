@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useState } from "react";
 import RecipeCard from "./RecipeCard";
+import MultiSelectDropDown from "./MultiSelectDropDown";
 
 export default function CreateRecipe() {
   const [name, setName] = useState("");
@@ -106,6 +107,7 @@ export default function CreateRecipe() {
           }}
           onChange={handleImageLinkChange}
         />
+        <MultiSelectDropDown />
         <RecipeCard
           name={name}
           recipeLink={recipeLink}

@@ -46,81 +46,71 @@ export default function CreateRecipe() {
     <div>
       <h1>page to create recipes</h1>
       <Container maxWidth="md">
-        {!isNameSaved ? (
-          <TextField
-            id="name"
-            name="name"
-            placeholder="Name of the recipe"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <button className="confirm-button" onClick={handleSaveName}>
-                    ✅
-                  </button>
-                </InputAdornment>
-              ),
-              autoComplete: "off",
-            }}
-            onChange={handleNameChange}
-          />
-        ) : (
-          <p>{name}</p>
-        )}
-        {!isRecipeLinkSaved ? (
-          <TextField
-            id="link"
-            name="link"
-            placeholder="Link to the recipe"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <button
-                    className="confirm-button"
-                    onClick={handleSaveRecipeLink}
-                  >
-                    ✅
-                  </button>
-                </InputAdornment>
-              ),
-              autoComplete: "off",
-            }}
-            onChange={handleRecipeLinkChange}
-          />
-        ) : (
-          <a href={recipeLink} target="_blank" rel="noreferrer">
-            {recipeLink}
-          </a>
-        )}
-        {!isImageLinkSaved ? (
-          <TextField
-            id="image-link"
-            name="image-link"
-            placeholder="Link to the thumbnail image"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <button
-                    className="confirm-button"
-                    onClick={handleSaveImageLink}
-                  >
-                    ✅
-                  </button>
-                </InputAdornment>
-              ),
-              autoComplete: "off",
-            }}
-            onChange={handleImageLinkChange}
-          />
-        ) : (
-          <img className="recipe-image" src={imageLink} alt="recipe" />
-        )}
-        <RecipeCard />
+        <TextField
+          id="name"
+          name="name"
+          placeholder="Name of the recipe"
+          margin="normal"
+          fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <button className="confirm-button" onClick={handleSaveName}>
+                  ✅
+                </button>
+              </InputAdornment>
+            ),
+            autoComplete: "off",
+          }}
+          onChange={handleNameChange}
+        />
+        <TextField
+          id="link"
+          name="link"
+          placeholder="Link to the recipe"
+          margin="normal"
+          fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <button
+                  className="confirm-button"
+                  onClick={handleSaveRecipeLink}
+                >
+                  ✅
+                </button>
+              </InputAdornment>
+            ),
+            autoComplete: "off",
+          }}
+          onChange={handleRecipeLinkChange}
+        />
+        <TextField
+          id="image-link"
+          name="image-link"
+          placeholder="Link to the thumbnail image"
+          margin="normal"
+          fullWidth
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <button
+                  className="confirm-button"
+                  onClick={handleSaveImageLink}
+                >
+                  ✅
+                </button>
+              </InputAdornment>
+            ),
+            autoComplete: "off",
+          }}
+          onChange={handleImageLinkChange}
+        />
+        <RecipeCard
+          name={name}
+          recipeLink={recipeLink}
+          imageLink={isImageLinkSaved ? imageLink : null}
+        />
       </Container>
     </div>
   );

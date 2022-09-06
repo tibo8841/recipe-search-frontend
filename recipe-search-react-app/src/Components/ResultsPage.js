@@ -1,12 +1,8 @@
-import { searchRecipes } from "./Networking";
-
 export default function ResultsPage() {
   const params = new URLSearchParams(window.location.search);
   const search = params.get("search");
   const cuisine = params.get("cuisine");
   const diet = params.get("diet");
-
-  // searchRecipes(search, cuisine, diet);
 
   function resultsString() {
     let searchTerms = "";

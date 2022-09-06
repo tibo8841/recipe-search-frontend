@@ -18,7 +18,7 @@ export default function CreateRecipe() {
   }
 
   function handleSaveName() {
-    if (name !== "") {
+    if (name !== "" && isNameSaved === false) {
       setIsNameSaved(true);
     }
   }
@@ -28,7 +28,7 @@ export default function CreateRecipe() {
   }
 
   function handleSaveRecipeLink() {
-    if (recipeLink !== "") {
+    if (recipeLink !== "" && isRecipeLinkSaved === false) {
       setIsRecipeLinkSaved(true);
     }
   }

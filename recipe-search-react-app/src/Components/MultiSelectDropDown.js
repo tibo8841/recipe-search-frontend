@@ -5,10 +5,17 @@ export default function MultiSelectDropDown(props) {
     { name: "mexican", id: 1 },
     { name: "italian", id: 2 },
     { name: "indian", id: 3 },
+    { name: "thai", id: 4 },
+    { name: "chinese", id: 5 },
   ];
+
   return (
-    <div>
-      <Multiselect options={cuisineOptions} displayValue="name" />
+    <div style={{ marginBottom: "10px" }}>
+      <Multiselect
+        options={cuisineOptions}
+        displayValue="name"
+        placeholder="Select Cuisine"
+      />
     </div>
   );
 }

@@ -51,7 +51,7 @@ export default function CreateRecipe() {
           id="name"
           name="name"
           placeholder="Name of the recipe"
-          margin="normal"
+          margin="dense"
           fullWidth
           InputProps={{
             endAdornment: (
@@ -69,7 +69,7 @@ export default function CreateRecipe() {
           id="link"
           name="link"
           placeholder="Link to the recipe"
-          margin="normal"
+          margin="dense"
           fullWidth
           InputProps={{
             endAdornment: (
@@ -90,7 +90,7 @@ export default function CreateRecipe() {
           id="image-link"
           name="image-link"
           placeholder="Link to the thumbnail image"
-          margin="normal"
+          margin="dense"
           fullWidth
           InputProps={{
             endAdornment: (

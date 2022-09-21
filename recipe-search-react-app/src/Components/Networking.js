@@ -61,3 +61,9 @@ export async function searchRecipes(search, cuisine, diet) {
   const json = await result.json();
   return json;
 }
+
+export async function getIngredients() {
+  const result = await fetch(`${URL}/ingredients`);
+  const json = await result.json();
+  return json;
+}

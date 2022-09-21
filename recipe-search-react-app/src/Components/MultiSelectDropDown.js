@@ -1,20 +1,32 @@
 import Multiselect from "multiselect-react-dropdown";
+import { useState, useEffect } from "react";
+import { getIngredients } from "./Networking";
 
 export default function MultiSelectDropDown(props) {
-  const cuisineOptions = [
-    { name: "mexican", id: 1 },
-    { name: "italian", id: 2 },
-    { name: "indian", id: 3 },
-    { name: "thai", id: 4 },
-    { name: "chinese", id: 5 },
-  ];
+  const [options, setOptions] = useState([]);
+  useEffect(() => {
+    const fetchIngredients = async () => {
+      const ingredients = await getIngredients();
+      console.log(ingredients.ingredients);
+      setOptions(ingredients.ingredients);
+    };
+    fetchIngredients();
+  }, []);
+
+  if (props.type === "diet") {
+  }
+  if (props.type === "cuisine") {
+  }
+
+  if (props.type === "ingredients") {
+  }
 
   return (
     <div style={{ marginBottom: "10px" }}>
       <Multiselect
-        options={cuisineOptions}
-        displayValue="name"
-        placeholder="Select Cuisine"
+        options={options}
+        displayValue="ingredient_name"
+        placeholder={`Select ${props.type}`}
       />
     </div>
   );

@@ -107,8 +107,8 @@ export default function CreateRecipe() {
           }}
           onChange={handleImageLinkChange}
         />
-        <MultiSelectDropDown type="cuisine" />
-        <MultiSelectDropDown type="diet" />
+        <MultiSelectDropDown type="cuisines" />
+        <MultiSelectDropDown type="diets" />
         <MultiSelectDropDown type="ingredients" />
         <RecipeCard
           name={name}

@@ -67,3 +67,15 @@ export async function getIngredients() {
   const json = await result.json();
   return json;
 }
+
+export async function getCuisines() {
+  const result = await fetch(`${URL}/cuisines`);
+  const json = await result.json();
+  return json;
+}
+
+export async function getDiets() {
+  const result = await fetch(`${URL}/diets`);
+  const json = await result.json();
+  return json;
+}

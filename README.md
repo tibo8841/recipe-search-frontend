@@ -7,3 +7,8 @@ It will return cards with a title and thumbnail for the recipe and some basic in
 Built using React.js
 
 Work in progress deployed at https://recipe-search-tibo.netlify.app/
+
+Here is an example of how creating a recipe works
+
+https://user-images.githubusercontent.com/98932210/192356769-a4c651e1-c6a6-4ed4-b993-020a4d0e0069.mov
+

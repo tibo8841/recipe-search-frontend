@@ -8,9 +8,7 @@ import MultiSelectDropDown from "./MultiSelectDropDown";
 
 export default function CreateRecipe() {
   const [name, setName] = useState("");
-  const [isNameSaved, setIsNameSaved] = useState(false);
   const [recipeLink, setRecipeLink] = useState("");
-  const [isRecipeLinkSaved, setIsRecipeLinkSaved] = useState(false);
   const [imageLink, setImageLink] = useState("");
   const [isImageLinkSaved, setIsImageLinkSaved] = useState(false);
   const [minsTaken, setMinsTaken] = useState(0);
@@ -22,20 +20,8 @@ export default function CreateRecipe() {
     setName(e.target.value);
   }
 
-  function handleSaveName() {
-    if (name !== "" && isNameSaved === false) {
-      setIsNameSaved(true);
-    }
-  }
-
   function handleRecipeLinkChange(e) {
     setRecipeLink(e.target.value);
-  }
-
-  function handleSaveRecipeLink() {
-    if (recipeLink !== "" && isRecipeLinkSaved === false) {
-      setIsRecipeLinkSaved(true);
-    }
   }
 
   function handleImageLinkChange(e) {
@@ -75,13 +61,6 @@ export default function CreateRecipe() {
           margin="dense"
           fullWidth
           InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <button className="confirm-button" onClick={handleSaveName}>
-                  ✅
-                </button>
-              </InputAdornment>
-            ),
             autoComplete: "off",
           }}
           onChange={handleNameChange}
@@ -93,16 +72,6 @@ export default function CreateRecipe() {
           margin="dense"
           fullWidth
           InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <button
-                  className="confirm-button"
-                  onClick={handleSaveRecipeLink}
-                >
-                  ✅
-                </button>
-              </InputAdornment>
-            ),
             autoComplete: "off",
           }}
           onChange={handleRecipeLinkChange}
@@ -130,10 +99,10 @@ export default function CreateRecipe() {
         />
         <Grid container spacing={2}>
           <Grid item xs={5}>
-            <MultiSelectDropDown type="cuisines" />
+            <MultiSelectDropDown type="cuisine" addToArr={addCuisines} />
           </Grid>
           <Grid item xs={5}>
-            <MultiSelectDropDown type="diets" />
+            <MultiSelectDropDown type="diet" addToArr={addDiets} />
           </Grid>
           <Grid item xs={2}>
             <TextField
@@ -154,7 +123,7 @@ export default function CreateRecipe() {
             />
           </Grid>
         </Grid>
-        <MultiSelectDropDown type="ingredients" />
+        <MultiSelectDropDown type="ingredient" addToArr={addIngredients} />
         <RecipeCard
           name={name}
           recipeLink={recipeLink}

@@ -35,8 +35,8 @@ export default function RecipeCard(props) {
               </p>
               <p>
                 {ingredients[0]
-                  ? `${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]} `
-                  : "Ingredient, Ingredient, Ingredient"}
+                  ? `${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]}, ${ingredients[3]}, ${ingredients[4]} `
+                  : "Ingredient, Ingredient, Ingredient, Ingredient, ingredient"}
               </p>
             </Grid>
             <Grid item>
@@ -45,9 +45,9 @@ export default function RecipeCard(props) {
               </a>
             </Grid>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <p>❤️</p>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </div>

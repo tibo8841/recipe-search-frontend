@@ -7,7 +7,7 @@ export default function MultiSelectDropDown(props) {
   const [displayValue, setDisplayValue] = useState("");
 
   useEffect(() => {
-    if (props.type === "ingredients") {
+    if (props.type === "ingredient") {
       const fetchIngredients = async () => {
         const ingredients = await getIngredients();
         setOptions(ingredients.ingredients);
@@ -15,7 +15,7 @@ export default function MultiSelectDropDown(props) {
       fetchIngredients();
       setDisplayValue("ingredient_name");
     }
-    if (props.type === "cuisines") {
+    if (props.type === "cuisine") {
       const fetchCuisines = async () => {
         const cuisines = await getCuisines();
         setOptions(cuisines.cuisines);
@@ -23,7 +23,7 @@ export default function MultiSelectDropDown(props) {
       fetchCuisines();
       setDisplayValue("cuisine_name");
     }
-    if (props.type === "diets") {
+    if (props.type === "diet") {
       const fetchDiets = async () => {
         const diets = await getDiets();
         setOptions(diets.diets);
@@ -33,13 +33,18 @@ export default function MultiSelectDropDown(props) {
     }
   }, [props.type]);
 
+  function onSelect(selectedList, selectedItem) {
+    props.addToArr(selectedItem[`${props.type}_name`]);
+  }
+
   return (
     <div style={{ marginBottom: "10px" }}>
       <Multiselect
+        avoidHighlightFirstOption={true}
         options={options}
         displayValue={displayValue}
-        placeholder={`Select ${props.type}`}
-        onSelect
+        placeholder={`Select ${props.type}s`}
+        onSelect={onSelect}
         style={{
           inputField: { height: "3em" },
           multiselectContainer: { marginTop: "0.5em" },

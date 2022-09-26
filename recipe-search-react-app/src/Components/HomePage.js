@@ -65,10 +65,10 @@ export default function HomePage() {
         />
         <Grid container spacing={2} marginTop="1%">
           <Grid item xs={4}>
-            <MultiSelectDropDown type="cuisines" selectType={chooseCuisine} />
+            <MultiSelectDropDown type="cuisine" selectType={chooseCuisine} />
           </Grid>
           <Grid item xs={4}>
-            <MultiSelectDropDown type="diets" selectType={chooseDiet} />
+            <MultiSelectDropDown type="diet" selectType={chooseDiet} />
           </Grid>
           <Grid item xs={4}>
             <button className="link-button" onClick={handleSubmit}>

@@ -30,12 +30,12 @@ export default function RecipeCard(props) {
               <h2>{name ? name : "Name"}</h2>
               <p>
                 Time: {minsTaken ? minsTaken : "??"} mins •{" "}
-                {cuisines ? cuisines : "Cuisine"}, {diets ? diets : "Diet"},{" "}
-                {ingredients ? ingredients : "Ingredient"}
+                {cuisines[0] ? cuisines[0] : "Cuisine"},{" "}
+                {diets[0] ? diets[0] : "Diet"}
               </p>
               <p>
-                {ingredients
-                  ? ingredients
+                {ingredients[0]
+                  ? `${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]} `
                   : "Ingredient, Ingredient, Ingredient"}
               </p>
             </Grid>

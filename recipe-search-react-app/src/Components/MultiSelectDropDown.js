@@ -39,6 +39,7 @@ export default function MultiSelectDropDown(props) {
         options={options}
         displayValue={displayValue}
         placeholder={`Select ${props.type}`}
+        onSelect
         style={{
           inputField: { height: "3em" },
           multiselectContainer: { marginTop: "0.5em" },

@@ -14,6 +14,9 @@ export default function CreateRecipe() {
   const [imageLink, setImageLink] = useState("");
   const [isImageLinkSaved, setIsImageLinkSaved] = useState(false);
   const [minsTaken, setMinsTaken] = useState(0);
+  const [ingredients, setIngredients] = useState([]);
+  const [cuisines, setCuisines] = useState([]);
+  const [diets, setDiets] = useState([]);
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -46,7 +49,19 @@ export default function CreateRecipe() {
   }
 
   function handleMinsTakenChange(e) {
-    setMinsTaken(e);
+    setMinsTaken(e.target.value);
+  }
+
+  function addIngredients(ingredient) {
+    setIngredients([...ingredients, ingredient]);
+  }
+
+  function addCuisines(cuisine) {
+    setCuisines([...cuisines, cuisine]);
+  }
+
+  function addDiets(diet) {
+    setDiets([...diets, diet]);
   }
 
   return (
@@ -122,11 +137,12 @@ export default function CreateRecipe() {
           </Grid>
           <Grid item xs={2}>
             <TextField
-              id="link"
-              name="link"
+              id="mins"
+              name="mins"
               margin="dense"
               fullWidth
               InputProps={{
+                inputProps: { min: 0, type: "number" },
                 endAdornment: (
                   <InputAdornment position="end">
                     <p>mins</p>
@@ -143,6 +159,9 @@ export default function CreateRecipe() {
           name={name}
           recipeLink={recipeLink}
           imageLink={isImageLinkSaved ? imageLink : null}
+          ingredients={ingredients}
+          cuisines={cuisines}
+          diets={diets}
           minsTaken={minsTaken}
         />
       </Container>

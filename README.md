@@ -10,4 +10,4 @@ Work in progress deployed at https://recipe-search-tibo.netlify.app/
 
 Here is an example of how creating a recipe works
 
-![Screen Recording 2022-09-26 at 19 47 54](https://user-images.githubusercontent.com/98932210/192357576-74dff1f5-cb90-45a6-a3d9-59e3739da65a.gif)
+https://user-images.githubusercontent.com/98932210/192357908-30e7c8fa-1eeb-46a4-80bb-6c8b3e53fbe1.mov

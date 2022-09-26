@@ -1,6 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import InputAdornment from "@mui/material/InputAdornment";
+import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import RecipeCard from "./RecipeCard";
 import MultiSelectDropDown from "./MultiSelectDropDown";
@@ -12,6 +13,7 @@ export default function CreateRecipe() {
   const [isRecipeLinkSaved, setIsRecipeLinkSaved] = useState(false);
   const [imageLink, setImageLink] = useState("");
   const [isImageLinkSaved, setIsImageLinkSaved] = useState(false);
+  const [minsTaken, setMinsTaken] = useState(0);
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -41,6 +43,10 @@ export default function CreateRecipe() {
     if (imageLink !== "") {
       setIsImageLinkSaved(true);
     }
+  }
+
+  function handleMinsTakenChange(e) {
+    setMinsTaken(e);
   }
 
   return (
@@ -107,13 +113,37 @@ export default function CreateRecipe() {
           }}
           onChange={handleImageLinkChange}
         />
-        <MultiSelectDropDown type="cuisines" />
-        <MultiSelectDropDown type="diets" />
+        <Grid container spacing={2}>
+          <Grid item xs={5}>
+            <MultiSelectDropDown type="cuisines" />
+          </Grid>
+          <Grid item xs={5}>
+            <MultiSelectDropDown type="diets" />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              id="link"
+              name="link"
+              margin="dense"
+              fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <p>mins</p>
+                  </InputAdornment>
+                ),
+                autoComplete: "off",
+              }}
+              onChange={handleMinsTakenChange}
+            />
+          </Grid>
+        </Grid>
         <MultiSelectDropDown type="ingredients" />
         <RecipeCard
           name={name}
           recipeLink={recipeLink}
           imageLink={isImageLinkSaved ? imageLink : null}
+          minsTaken={minsTaken}
         />
       </Container>
     </div>

@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import Container from "@mui/material/Container";
-import DropDown from "./DropDown";
+import MultiSelectDropDown from "./MultiSelectDropDown";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -65,10 +65,10 @@ export default function HomePage() {
         />
         <Grid container spacing={2} marginTop="1%">
           <Grid item xs={4}>
-            <DropDown type="cuisine" selectType={chooseCuisine} />
+            <MultiSelectDropDown type="cuisines" selectType={chooseCuisine} />
           </Grid>
           <Grid item xs={4}>
-            <DropDown type="diet" selectType={chooseDiet} />
+            <MultiSelectDropDown type="diets" selectType={chooseDiet} />
           </Grid>
           <Grid item xs={4}>
             <button className="link-button" onClick={handleSubmit}>

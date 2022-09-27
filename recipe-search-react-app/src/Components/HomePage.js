@@ -9,8 +9,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [cuisine, setCuisine] = useState("");
-  const [diet, setDiet] = useState("");
+  const [cuisines, setCuisines] = useState([]);
+  const [diets, setDiets] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   const navigate = useNavigate();
 
@@ -19,25 +20,32 @@ export default function HomePage() {
     if (searchTerm) {
       params.append("search", searchTerm);
     }
-    if (cuisine) {
-      params.append("cuisine", cuisine);
+    if (ingredients[0]) {
+      params.append("ingredients", ingredients[0]);
     }
-    if (diet) {
-      params.append("diet", diet);
+    if (cuisines[0]) {
+      params.append("cuisine", cuisines[0]);
+    }
+    if (diets[0]) {
+      params.append("diet", diets[0]);
     }
     navigate(`results?${params}`);
   }
 
+  function addIngredients(ingredient) {
+    setIngredients([...ingredients, ingredient]);
+  }
+
+  function addCuisines(cuisine) {
+    setCuisines([...cuisines, cuisine]);
+  }
+
+  function addDiets(diet) {
+    setDiets([...diets, diet]);
+  }
+
   function navigateToCreateRecipe() {
     navigate("create-recipe");
-  }
-
-  function chooseCuisine(cuisine) {
-    setCuisine(cuisine.value);
-  }
-
-  function chooseDiet(diet) {
-    setDiet(diet.value);
   }
 
   function handleSearchChange(e) {
@@ -51,8 +59,9 @@ export default function HomePage() {
         <TextField
           id="search"
           name="search"
-          placeholder="Search for ingredient or name of dish"
+          placeholder="Search by name of dish"
           fullWidth
+          style={{ marginBottom: "1%" }}
           onChange={handleSearchChange}
           InputProps={{
             startAdornment: (
@@ -63,15 +72,20 @@ export default function HomePage() {
             autoComplete: "off",
           }}
         />
-        <Grid container spacing={2} marginTop="1%">
+        <MultiSelectDropDown type="ingredient" addToArr={addIngredients} />
+        <Grid container spacing={2}>
           <Grid item xs={4}>
-            <MultiSelectDropDown type="cuisine" selectType={chooseCuisine} />
+            <MultiSelectDropDown type="cuisine" addToArr={addCuisines} />
           </Grid>
           <Grid item xs={4}>
-            <MultiSelectDropDown type="diet" selectType={chooseDiet} />
+            <MultiSelectDropDown type="diet" addToArr={addDiets} />
           </Grid>
           <Grid item xs={4}>
-            <button className="link-button" onClick={handleSubmit}>
+            <button
+              className="link-button"
+              onClick={handleSubmit}
+              style={{ height: "7vh", marginTop: "1vh", width: "18.9vw" }}
+            >
               Search
             </button>
           </Grid>

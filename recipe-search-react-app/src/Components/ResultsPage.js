@@ -1,6 +1,7 @@
 export default function ResultsPage() {
   const params = new URLSearchParams(window.location.search);
   const search = params.get("search");
+  const ingredients = params.get("ingredients");
   const cuisine = params.get("cuisine");
   const diet = params.get("diet");
 
@@ -8,6 +9,9 @@ export default function ResultsPage() {
     let searchTerms = "";
     if (search) {
       searchTerms += ` "${search}"`;
+    }
+    if (ingredients) {
+      searchTerms += ` "${ingredients}"`;
     }
     if (cuisine) {
       searchTerms += ` "${cuisine}"`;

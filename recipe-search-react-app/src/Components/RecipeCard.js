@@ -45,9 +45,9 @@ export default function RecipeCard(props) {
               </a>
             </Grid>
           </Grid>
-          {/* <Grid item>
+          <Grid item>
             <p>❤️</p>
-          </Grid> */}
+          </Grid>
         </Grid>
       </Grid>
     </div>

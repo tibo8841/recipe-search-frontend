@@ -10,6 +10,7 @@ export default function RecipeCard(props) {
     diets,
     minsTaken,
   } = props;
+
   return (
     <div className="recipe-card">
       <Grid container spacing={2}>
@@ -30,13 +31,19 @@ export default function RecipeCard(props) {
               <h2>{name ? name : "Name"}</h2>
               <p>
                 Time: {minsTaken ? minsTaken : "??"} mins •{" "}
-                {cuisines[0] ? cuisines[0] : "Cuisine"},{" "}
-                {diets[0] ? diets[0] : "Diet"}
+                {cuisines[0] ? cuisines[0]["cuisine_name"] : "Cuisine"},{" "}
+                {diets[0] ? diets[0]["diet_name"] : "Diet"}
               </p>
               <p>
-                {ingredients[0]
-                  ? `${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]}, ${ingredients[3]}, ${ingredients[4]} `
-                  : "Ingredient, Ingredient, Ingredient, Ingredient, ingredient"}
+                {ingredients[0] && ingredients.length > 7
+                  ? ingredients
+                      .slice(0, 8)
+                      .map((ingredient) => `${ingredient["ingredient_name"]}, `)
+                  : ingredients[0]
+                  ? ingredients.map(
+                      (ingredient) => `${ingredient["ingredient_name"]}, `
+                    )
+                  : "Ingredient, Ingredient, Ingredient"}
               </p>
             </Grid>
             <Grid item>

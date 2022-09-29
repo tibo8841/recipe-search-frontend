@@ -34,7 +34,7 @@ export default function MultiSelectDropDown(props) {
   }, [props.type]);
 
   function onSelect(selectedList, selectedItem) {
-    props.addToArr(selectedItem[`${props.type}_name`]);
+    props.addToArr(selectedItem);
   }
 
   return (

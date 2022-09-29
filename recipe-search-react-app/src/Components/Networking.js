@@ -1,3 +1,4 @@
+// const URL = "http://localhost:3030";
 const URL = "https://recipe-search-backend-production.up.railway.app";
 
 export async function getLogin(username, password) {
@@ -76,6 +77,42 @@ export async function getCuisines() {
 
 export async function getDiets() {
   const result = await fetch(`${URL}/diets`);
+  const json = await result.json();
+  return json;
+}
+
+export async function saveRecipe(
+  recipeName,
+  recipeLink,
+  imageLink,
+  minsTaken,
+  ingredients,
+  cuisines,
+  diets
+) {
+  let recipeDetails;
+
+  if (
+    (recipeName, recipeLink, imageLink, minsTaken, ingredients, cuisines, diets)
+  ) {
+    recipeDetails = {
+      recipeName: recipeName,
+      recipeLink: recipeLink,
+      imageLink: imageLink,
+      minsTaken: minsTaken,
+      ingredients: ingredients,
+      cuisines: cuisines,
+      diets: diets,
+    };
+  }
+
+  const result = await fetch(`${URL}/recipe`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(recipeDetails),
+  });
   const json = await result.json();
   return json;
 }

@@ -5,9 +5,10 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import RecipeCard from "./RecipeCard";
 import MultiSelectDropDown from "./MultiSelectDropDown";
+import { saveRecipe } from "./Networking";
 
 export default function CreateRecipe() {
-  const [name, setName] = useState("");
+  const [recipeName, setRecipeName] = useState("");
   const [recipeLink, setRecipeLink] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [isImageLinkSaved, setIsImageLinkSaved] = useState(false);
@@ -17,7 +18,7 @@ export default function CreateRecipe() {
   const [diets, setDiets] = useState([]);
 
   function handleNameChange(e) {
-    setName(e.target.value);
+    setRecipeName(e.target.value);
   }
 
   function handleRecipeLinkChange(e) {
@@ -50,9 +51,21 @@ export default function CreateRecipe() {
     setDiets([...diets, diet]);
   }
 
+  function handleSaveRecipe() {
+    saveRecipe(
+      recipeName,
+      recipeLink,
+      imageLink,
+      minsTaken,
+      ingredients,
+      cuisines,
+      diets
+    );
+  }
+
   return (
     <div>
-      <h1>page to create recipes</h1>
+      <h3>page to create recipes</h3>
       <Container maxWidth="md">
         <TextField
           id="name"
@@ -125,7 +138,7 @@ export default function CreateRecipe() {
         </Grid>
         <MultiSelectDropDown type="ingredient" addToArr={addIngredients} />
         <RecipeCard
-          name={name}
+          name={recipeName}
           recipeLink={recipeLink}
           imageLink={isImageLinkSaved ? imageLink : null}
           ingredients={ingredients}
@@ -133,6 +146,7 @@ export default function CreateRecipe() {
           diets={diets}
           minsTaken={minsTaken}
         />
+        <button onClick={handleSaveRecipe}>save recipe</button>
       </Container>
     </div>
   );

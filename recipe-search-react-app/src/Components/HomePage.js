@@ -21,13 +21,13 @@ export default function HomePage() {
       params.append("search", searchTerm);
     }
     if (ingredients[0]) {
-      params.append("ingredients", ingredients[0]);
+      params.append("ingredients", ingredients[0]["ingredient_name"]);
     }
     if (cuisines[0]) {
-      params.append("cuisine", cuisines[0]);
+      params.append("cuisine", cuisines[0]["cuisine_name"]);
     }
     if (diets[0]) {
-      params.append("diet", diets[0]);
+      params.append("diet", diets[0]["diet_name"]);
     }
     navigate(`results?${params}`);
   }

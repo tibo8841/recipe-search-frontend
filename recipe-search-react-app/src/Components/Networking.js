@@ -57,12 +57,6 @@ export async function checkSessions() {
   return json.response;
 }
 
-export async function searchRecipes(search, cuisine, diet) {
-  const result = await fetch(`${URL}/`);
-  const json = await result.json();
-  return json;
-}
-
 export async function getIngredients() {
   const result = await fetch(`${URL}/ingredients`);
   const json = await result.json();
@@ -77,6 +71,12 @@ export async function getCuisines() {
 
 export async function getDiets() {
   const result = await fetch(`${URL}/diets`);
+  const json = await result.json();
+  return json;
+}
+
+export async function getRecipes(resultsString) {
+  const result = await fetch(`${URL}/recipes?${resultsString}`);
   const json = await result.json();
   return json;
 }
@@ -106,7 +106,7 @@ export async function saveRecipe(
     };
   }
 
-  const result = await fetch(`${URL}/recipe`, {
+  const result = await fetch(`${URL}/recipes`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

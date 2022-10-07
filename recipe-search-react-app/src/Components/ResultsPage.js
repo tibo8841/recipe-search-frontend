@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { getRecipes } from "./Networking";
 
 export default function ResultsPage() {
@@ -9,7 +9,7 @@ export default function ResultsPage() {
   const diet = params.get("diet");
 
   useEffect(() => {
-    let result = getRecipes(params);
+    getRecipes(params);
   }, [params]);
 
   function resultsString() {

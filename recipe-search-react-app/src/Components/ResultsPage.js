@@ -1,5 +1,7 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getRecipes } from "./Networking";
+import Container from "@mui/material/Container";
+import RecipeCard from "./RecipeCard";
 
 export default function ResultsPage() {
   const params = useMemo(() => new URLSearchParams(window.location.search), []);
@@ -7,9 +9,16 @@ export default function ResultsPage() {
   const ingredients = params.get("ingredients");
   const cuisine = params.get("cuisine");
   const diet = params.get("diet");
+  const [loading, setLoading] = useState(true);
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    getRecipes(params);
+    const fetchRecipes = async () => {
+      let result = await getRecipes(params);
+      setRecipes(result.Recipes);
+      setLoading(false);
+    };
+    fetchRecipes();
   }, [params]);
 
   function resultsString() {
@@ -32,6 +41,21 @@ export default function ResultsPage() {
   return (
     <div>
       <h1>returning results for{resultsString()}</h1>
+      <Container maxWidth="md">
+        {loading
+          ? "Loading recipes"
+          : recipes.map((recipe) => (
+              <RecipeCard
+                name={recipe.name}
+                recipeLink={recipe.link}
+                imageLink={recipe.picture}
+                ingredients={recipe.ingredient_id}
+                cuisines={recipe.cuisine_id}
+                diets={recipe.diet_id}
+                minsTaken={recipe.mins_taken}
+              />
+            ))}
+      </Container>
     </div>
   );
 }

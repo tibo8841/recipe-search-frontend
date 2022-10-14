@@ -11,11 +11,18 @@ export default function ResultsPage() {
   const diet = params.get("diet");
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
+  const [ingredientsArr, setIngredientsArr] = useState([]);
+  const [cuisinesArr, setCuisinesArr] = useState([]);
+  const [dietsArr, setDietsArr] = useState([]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
       let result = await getRecipes(params);
+      console.log(result);
       setRecipes(result.Recipes);
+      setIngredientsArr(result.Ingredients);
+      setCuisinesArr(result.Cuisines);
+      setDietsArr(result.Diets);
       setLoading(false);
     };
     fetchRecipes();
@@ -44,14 +51,14 @@ export default function ResultsPage() {
       <Container maxWidth="md">
         {loading
           ? "Loading recipes"
-          : recipes.map((recipe) => (
+          : recipes.map((recipe, index) => (
               <RecipeCard
                 name={recipe.name}
                 recipeLink={recipe.link}
                 imageLink={recipe.picture}
-                ingredients={recipe.ingredient_id}
-                cuisines={recipe.cuisine_id}
-                diets={recipe.diet_id}
+                ingredients={ingredientsArr[index]}
+                cuisines={cuisinesArr[index]}
+                diets={dietsArr[index]}
                 minsTaken={recipe.mins_taken}
               />
             ))}

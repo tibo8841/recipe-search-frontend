@@ -16,6 +16,8 @@ export default function CreateRecipe() {
   const [ingredients, setIngredients] = useState([]);
   const [cuisines, setCuisines] = useState([]);
   const [diets, setDiets] = useState([]);
+  const [validation, setValidation] = useState();
+  const [buttonPressed, setButtonPressed] = useState(false);
 
   function handleNameChange(e) {
     setRecipeName(e.target.value);
@@ -52,15 +54,37 @@ export default function CreateRecipe() {
   }
 
   function handleSaveRecipe() {
-    saveRecipe(
-      recipeName,
-      recipeLink,
-      imageLink,
-      minsTaken,
-      ingredients,
-      cuisines,
-      diets
-    );
+    setButtonPressed(true);
+    if (validateRecipe() === true) {
+      saveRecipe(
+        recipeName,
+        recipeLink,
+        imageLink,
+        minsTaken,
+        ingredients,
+        cuisines,
+        diets
+      );
+      setValidation(true);
+    } else {
+      setValidation(false);
+    }
+  }
+
+  function validateRecipe() {
+    if (
+      recipeName !== "" &&
+      recipeLink !== "" &&
+      imageLink !== "" &&
+      minsTaken !== 0 &&
+      ingredients !== [] &&
+      cuisines !== [] &&
+      diets !== []
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   return (
@@ -146,7 +170,22 @@ export default function CreateRecipe() {
           diets={diets}
           minsTaken={minsTaken}
         />
-        <button onClick={handleSaveRecipe}>save recipe</button>
+        {buttonPressed ? (
+          validation ? (
+            <h3 style={{ color: "green" }}>recipe saved!</h3>
+          ) : (
+            <p style={{ color: "red" }}>
+              You must fill all the parameters to save the recipe
+            </p>
+          )
+        ) : null}
+        <button
+          onClick={handleSaveRecipe}
+          className="save-button"
+          style={{ visibility: validation ? "hidden" : "visible" }}
+        >
+          save recipe
+        </button>
       </Container>
     </div>
   );

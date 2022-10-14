@@ -16,7 +16,7 @@
 
 .app-header {
   display: flex;
-  height: 10vh;
+  height: 7vh;
   padding: 1vh;
   background-color: rgba(214, 159, 225, 0.297);
   justify-content: center;
@@ -37,9 +37,22 @@
   background-color: rgba(214, 159, 225, 0.297);
 }
 
+.save-button {
+  padding: 0.5%;
+  width: 180px;
+  font-size: medium;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.save-button:hover {
+  background-color: rgba(214, 159, 225, 0.297);
+}
+
 .recipe-card {
   border: 1px solid black;
   height: 200px;
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 0.8%;
 }

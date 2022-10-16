@@ -51,7 +51,7 @@
 
 .recipe-card {
   border: 1px solid black;
-  height: 200px;
+  height: 25vh;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 0.8%;

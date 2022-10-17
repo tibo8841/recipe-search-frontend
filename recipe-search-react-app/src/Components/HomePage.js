@@ -1,14 +1,10 @@
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
 import Container from "@mui/material/Container";
 import MultiSelectDropDown from "./MultiSelectDropDown";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [cuisines, setCuisines] = useState([]);
   const [diets, setDiets] = useState([]);
   const [ingredients, setIngredients] = useState([]);
@@ -17,9 +13,6 @@ export default function HomePage() {
 
   function handleSubmit() {
     const params = new URLSearchParams({});
-    if (searchTerm) {
-      params.append("search", searchTerm);
-    }
     if (ingredients[0]) {
       params.append("ingredients", ingredients[0]["ingredient_name"]);
     }
@@ -48,30 +41,13 @@ export default function HomePage() {
     navigate("create-recipe");
   }
 
-  function handleSearchChange(e) {
-    setSearchTerm(e.target.value);
-  }
-
   return (
     <div>
       <Container maxWidth="md">
         <h1>Search for a recipe!</h1>
-        <TextField
-          id="search"
-          name="search"
-          placeholder="Search by name of dish"
-          fullWidth
-          style={{ marginBottom: "1%" }}
-          onChange={handleSearchChange}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <RestaurantIcon />
-              </InputAdornment>
-            ),
-            autoComplete: "off",
-          }}
-        />
+        <p>
+          search by selecting one or multiple parameters to filter recipes by
+        </p>
         <MultiSelectDropDown type="ingredient" addToArr={addIngredients} />
         <Grid container spacing={2}>
           <Grid item xs={4}>
@@ -93,7 +69,7 @@ export default function HomePage() {
         <button
           className="link-button"
           onClick={navigateToCreateRecipe}
-          style={{ marginTop: "5%" }}
+          style={{ marginTop: "10%" }}
         >
           Create New Recipe!
         </button>

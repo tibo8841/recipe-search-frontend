@@ -37,6 +37,10 @@ export default function MultiSelectDropDown(props) {
     props.addToArr(selectedItem);
   }
 
+  function onRemove(selectedList, selectedItem) {
+    props.removeFromArr(selectedItem);
+  }
+
   return (
     <div style={{ marginBottom: "10px" }}>
       <Multiselect
@@ -45,6 +49,7 @@ export default function MultiSelectDropDown(props) {
         displayValue={displayValue}
         placeholder={`Select ${props.type}s`}
         onSelect={onSelect}
+        onRemove={onRemove}
         style={{
           inputField: { height: "3em" },
           multiselectContainer: { marginTop: "0.5em" },

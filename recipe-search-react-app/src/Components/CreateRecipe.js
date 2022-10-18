@@ -45,12 +45,33 @@ export default function CreateRecipe() {
     setIngredients([...ingredients, ingredient]);
   }
 
+  function removeIngredients(ingredient) {
+    let updatedIngredients = ingredients;
+    let index = updatedIngredients.indexOf(ingredient);
+    updatedIngredients.splice(index, 1);
+    setIngredients(updatedIngredients);
+  }
+
   function addCuisines(cuisine) {
     setCuisines([...cuisines, cuisine]);
   }
 
+  function removeCuisines(cuisine) {
+    let updatedCuisines = cuisines;
+    let index = updatedCuisines.indexOf(cuisine);
+    updatedCuisines.splice(index, 1);
+    setCuisines(updatedCuisines);
+  }
+
   function addDiets(diet) {
     setDiets([...diets, diet]);
+  }
+
+  function removeDiets(diet) {
+    let updatedDiets = diets;
+    let index = updatedDiets.indexOf(diet);
+    updatedDiets.splice(index, 1);
+    setDiets(updatedDiets);
   }
 
   function handleSaveRecipe() {
@@ -136,10 +157,18 @@ export default function CreateRecipe() {
         />
         <Grid container spacing={2}>
           <Grid item xs={5}>
-            <MultiSelectDropDown type="cuisine" addToArr={addCuisines} />
+            <MultiSelectDropDown
+              type="cuisine"
+              addToArr={addCuisines}
+              removeFromArr={removeCuisines}
+            />
           </Grid>
           <Grid item xs={5}>
-            <MultiSelectDropDown type="diet" addToArr={addDiets} />
+            <MultiSelectDropDown
+              type="diet"
+              addToArr={addDiets}
+              removeFromArr={removeDiets}
+            />
           </Grid>
           <Grid item xs={2}>
             <TextField
@@ -160,7 +189,11 @@ export default function CreateRecipe() {
             />
           </Grid>
         </Grid>
-        <MultiSelectDropDown type="ingredient" addToArr={addIngredients} />
+        <MultiSelectDropDown
+          type="ingredient"
+          addToArr={addIngredients}
+          removeFromArr={removeIngredients}
+        />
         <RecipeCard
           name={recipeName}
           recipeLink={recipeLink}

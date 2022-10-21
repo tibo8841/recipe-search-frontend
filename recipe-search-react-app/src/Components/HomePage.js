@@ -69,6 +69,7 @@ export default function HomePage() {
         <p>
           search by selecting one or multiple parameters to filter recipes by
         </p>
+        <p>for example, choose pasta as an ingredient and click search</p>
         <MultiSelectDropDown
           type="ingredient"
           addToArr={addIngredients}

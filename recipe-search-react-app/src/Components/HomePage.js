@@ -74,6 +74,7 @@ export default function HomePage() {
           type="ingredient"
           addToArr={addIngredients}
           removeFromArr={removeIngredients}
+          singleSelect
         />
         <Grid container spacing={2}>
           <Grid item xs={4}>
@@ -81,6 +82,7 @@ export default function HomePage() {
               type="cuisine"
               addToArr={addCuisines}
               removeFromArr={removeCuisines}
+              singleSelect
             />
           </Grid>
           <Grid item xs={4}>
@@ -88,6 +90,7 @@ export default function HomePage() {
               type="diet"
               addToArr={addDiets}
               removeFromArr={removeDiets}
+              singleSelect
             />
           </Grid>
           <Grid item xs={4}>

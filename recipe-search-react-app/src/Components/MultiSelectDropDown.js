@@ -5,6 +5,7 @@ import { getIngredients, getCuisines, getDiets } from "./Networking";
 export default function MultiSelectDropDown(props) {
   const [options, setOptions] = useState([]);
   const [displayValue, setDisplayValue] = useState("");
+  const [selectionLimit, setSelectionLimit] = useState(-1);
 
   useEffect(() => {
     if (props.type === "ingredient") {
@@ -31,7 +32,10 @@ export default function MultiSelectDropDown(props) {
       fetchDiets();
       setDisplayValue("diet_name");
     }
-  }, [props.type]);
+    if (props.singleSelect) {
+      setSelectionLimit(1);
+    }
+  }, [props.type, props.singleSelect]);
 
   function onSelect(selectedList, selectedItem) {
     props.addToArr(selectedItem);
@@ -50,6 +54,7 @@ export default function MultiSelectDropDown(props) {
         placeholder={`Select ${props.type}s`}
         onSelect={onSelect}
         onRemove={onRemove}
+        selectionLimit={selectionLimit}
         style={{
           inputField: { height: "3em" },
           multiselectContainer: { marginTop: "0.5em" },

@@ -57,7 +57,7 @@ export default function ResultsPage() {
       <h1>returning results for{resultsString()}</h1>
       <Container maxWidth="md">
         {loading ? (
-          "Loading recipes"
+          "Loading recipes..."
         ) : recipes[0] ? (
           recipes.map((recipe, index) => (
             <RecipeCard

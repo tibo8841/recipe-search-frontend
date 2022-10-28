@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid";
+import { useState } from "react";
 
 export default function RecipeCard(props) {
   const {
@@ -10,9 +11,14 @@ export default function RecipeCard(props) {
     diets,
     minsTaken,
   } = props;
+  const [visible, setVisible] = useState("hidden");
+
+  function showCard() {
+    setVisible("visible");
+  }
 
   return (
-    <div className="recipe-card">
+    <div className="recipe-card" style={{ visibility: visible }}>
       <Grid container spacing={2}>
         <Grid item>
           <img
@@ -22,6 +28,7 @@ export default function RecipeCard(props) {
                 ? imageLink
                 : "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
             }
+            onLoad={showCard}
             style={{ height: "25vh" }}
           />
         </Grid>

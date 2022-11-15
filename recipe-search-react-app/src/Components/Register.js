@@ -28,25 +28,51 @@ export default function Register() {
   };
 
   return (
-    <div className="register-form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-          <input type="text" name="username" required />
+    <div className="login-form">
+      <div className="login-container">
+        <div className="login-content">
+          <h2>Register</h2>
+          <form onSubmit={handleSubmit} className="login">
+            <div className="input-container">
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                className="input-field"
+                required
+              />
+            </div>
+            <div className="input-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                className="input-field"
+                required
+              />
+            </div>
+            <div className="input-container">
+              <input
+                type="confirm-password"
+                name="confirm-password"
+                placeholder="confirm password"
+                className="input-field"
+                required
+              />
+            </div>
+            <div className="button-container">
+              <input
+                type="submit"
+                className="input-button"
+                value={"register"}
+              />
+            </div>
+            <div className="link-text">
+              <a href="/login">Already have an account? Sign in</a>
+            </div>
+          </form>
         </div>
-        <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="password" required />
-        </div>
-        <div className="input-container">
-          <label>Confirm Password </label>
-          <input type="confirm-password" name="confirm-password" required />
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-        <a href="/login">Already have an account? Sign in</a>
-      </form>
+      </div>
     </div>
   );
 }

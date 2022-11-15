@@ -50,10 +50,10 @@ export default function Login() {
             <div className="button-container">
               <input type="submit" className="input-button" value={"login"} />
             </div>
-            <div className="link-text">
-              <a href="/register">Don't have an account? Sign up</a>
-            </div>
           </form>
+          <div className="link-text">
+            <a href="/register">Don't have an account? Sign up</a>
+          </div>
         </div>
       </div>
     </div>

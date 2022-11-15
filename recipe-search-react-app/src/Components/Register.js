@@ -67,10 +67,10 @@ export default function Register() {
                 value={"register"}
               />
             </div>
-            <div className="link-text">
-              <a href="/login">Already have an account? Sign in</a>
-            </div>
           </form>
+          <div className="link-text">
+            <a href="/login">Already have an account? Sign in</a>
+          </div>
         </div>
       </div>
     </div>

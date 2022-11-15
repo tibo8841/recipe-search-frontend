@@ -53,7 +53,7 @@ export default function Register() {
             </div>
             <div className="input-container">
               <input
-                type="confirm-password"
+                type="password"
                 name="confirm-password"
                 placeholder="confirm password"
                 className="input-field"

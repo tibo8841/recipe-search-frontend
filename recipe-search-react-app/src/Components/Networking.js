@@ -54,7 +54,19 @@ export async function checkSessions() {
     },
   });
   const json = await result.json();
-  return json.response;
+  return json;
+}
+
+export async function getProfile() {
+  const result = await fetch(`${URL}/profile`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const json = await result.json();
+  return json;
 }
 
 export async function getIngredients() {

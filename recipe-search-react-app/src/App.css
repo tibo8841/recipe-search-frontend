@@ -144,3 +144,10 @@
 .link-text {
   margin-top: 100px;
 }
+
+.header-login {
+  position: absolute;
+  right: 0%;
+  margin-right: 30px;
+  cursor: pointer;
+}

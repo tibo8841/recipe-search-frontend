@@ -5,8 +5,12 @@ import SavedRecipes from "./Components/SavedRecipes";
 import CreateRecipe from "./Components/CreateRecipe";
 import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 
 function App() {
+  const [user, setUser] = useState("");
   return (
     <div className="app">
       <Header />
@@ -15,6 +19,8 @@ function App() {
         <Route path="results" element={<ResultsPage />} />
         <Route path="saved-recipes" element={<SavedRecipes />} />
         <Route path="create-recipe" element={<CreateRecipe />} />
+        <Route path="login" element={<Login setUser={setUser} user={user} />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </div>
   );

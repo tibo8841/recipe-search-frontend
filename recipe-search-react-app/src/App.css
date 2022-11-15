@@ -63,3 +63,84 @@
 .recipe-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
 }
+
+* {
+  font-family: Raleway, sans-serif;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  min-height: 70vh;
+}
+
+.login-container {
+  background: linear-gradient(#d0adcc, #f5e0f4);
+  position: relative;
+  height: 600px;
+  width: 360px;
+  box-shadow: 0px 0px 24px #6363633a;
+}
+
+.login-content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 56px;
+}
+
+.login-container {
+  padding: 20px 0px;
+  position: relative;
+}
+
+.input-field {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.input-field:active,
+.input-field:focus,
+.input-field:hover {
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+.input-button {
+  background: #fff;
+  font-size: 14px;
+  padding: 16px 20px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #483749;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.input-button:active,
+.input-button:focus,
+.input-button:hover {
+  border-color: #6a679e;
+  outline: none;
+}
+
+.link-text {
+  margin-top: 100px;
+}

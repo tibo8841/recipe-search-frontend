@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { checkSessions, endSession } from "./Networking";
+import { checkSessions } from "./Networking";
 import { useState, useEffect } from "react";
 
 export default function Header() {

@@ -1,5 +1,11 @@
-.App {
-  text-align: center;
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
 }
 
 .link-button {
@@ -21,6 +27,66 @@
   background-color: rgba(214, 159, 225, 0.297);
   justify-content: center;
   align-items: center;
+}
+
+.app-footer {
+  display: flex;
+  height: 10vh;
+  padding: 1vh;
+  margin-top: 2vh;
+  background-color: rgba(47, 44, 48, 0.54);
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.app-footer h5 {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
+.app-footer a {
+  text-decoration: none;
+}
+
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+.footer-links li {
+  display: block;
+}
+.footer-links a {
+  color: #4d4b4b;
+}
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+.footer-links.inline li {
+  display: inline-block;
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
 }
 
 .confirm-button {

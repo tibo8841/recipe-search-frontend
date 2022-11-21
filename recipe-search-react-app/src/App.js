@@ -4,6 +4,7 @@ import ResultsPage from "./Components/ResultsPage";
 import SavedRecipes from "./Components/SavedRecipes";
 import CreateRecipe from "./Components/CreateRecipe";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Login from "./Components/Login";
@@ -22,6 +23,7 @@ function App() {
         <Route path="login" element={<Login setUser={setUser} user={user} />} />
         <Route path="register" element={<Register />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

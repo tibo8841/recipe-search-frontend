@@ -63,7 +63,7 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="main-content">
       <Container maxWidth="md">
         <h1>Search for a recipe!</h1>
         <p>

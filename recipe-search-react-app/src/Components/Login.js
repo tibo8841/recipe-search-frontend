@@ -24,35 +24,37 @@ export default function Login() {
   };
 
   return (
-    <div className="login-form">
-      <div className="login-container">
-        <div className="login-content">
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit} className="login">
-            <div className="input-container">
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                className="input-field"
-                required
-              />
+    <div className="main-content">
+      <div className="login-form">
+        <div className="login-container">
+          <div className="login-content">
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit} className="login">
+              <div className="input-container">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="username"
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div className="button-container">
+                <input type="submit" className="input-button" value={"login"} />
+              </div>
+            </form>
+            <div className="link-text">
+              <a href="/register">Don't have an account? Sign up</a>
             </div>
-            <div className="input-container">
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="input-field"
-                required
-              />
-            </div>
-            <div className="button-container">
-              <input type="submit" className="input-button" value={"login"} />
-            </div>
-          </form>
-          <div className="link-text">
-            <a href="/register">Don't have an account? Sign up</a>
           </div>
         </div>
       </div>

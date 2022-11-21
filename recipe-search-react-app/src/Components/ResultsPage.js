@@ -53,7 +53,7 @@ export default function ResultsPage() {
   }
 
   return (
-    <div>
+    <div className="main-content">
       <h1>returning results for{resultsString()}</h1>
       <Container maxWidth="md">
         {loading ? (

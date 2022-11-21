@@ -28,48 +28,50 @@ export default function Register() {
   };
 
   return (
-    <div className="login-form">
-      <div className="login-container">
-        <div className="login-content">
-          <h2>Register</h2>
-          <form onSubmit={handleSubmit} className="login">
-            <div className="input-container">
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                className="input-field"
-                required
-              />
+    <div className="main-content">
+      <div className="login-form">
+        <div className="login-container">
+          <div className="login-content">
+            <h2>Register</h2>
+            <form onSubmit={handleSubmit} className="login">
+              <div className="input-container">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="username"
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  type="password"
+                  name="confirm-password"
+                  placeholder="confirm password"
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div className="button-container">
+                <input
+                  type="submit"
+                  className="input-button"
+                  value={"register"}
+                />
+              </div>
+            </form>
+            <div className="link-text">
+              <a href="/login">Already have an account? Sign in</a>
             </div>
-            <div className="input-container">
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="input-field"
-                required
-              />
-            </div>
-            <div className="input-container">
-              <input
-                type="password"
-                name="confirm-password"
-                placeholder="confirm password"
-                className="input-field"
-                required
-              />
-            </div>
-            <div className="button-container">
-              <input
-                type="submit"
-                className="input-button"
-                value={"register"}
-              />
-            </div>
-          </form>
-          <div className="link-text">
-            <a href="/login">Already have an account? Sign in</a>
           </div>
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function CreateRecipe() {
   }
 
   return (
-    <div>
+    <div className="main-content">
       <h3>page to create recipes</h3>
       <Container maxWidth="md">
         <TextField

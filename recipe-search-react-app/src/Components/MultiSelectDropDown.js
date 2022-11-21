@@ -51,7 +51,7 @@ export default function MultiSelectDropDown(props) {
         avoidHighlightFirstOption={true}
         options={options}
         displayValue={displayValue}
-        placeholder={`Select ${props.type}s`}
+        placeholder={`Select ${props.type}`}
         onSelect={onSelect}
         onRemove={onRemove}
         selectionLimit={selectionLimit}

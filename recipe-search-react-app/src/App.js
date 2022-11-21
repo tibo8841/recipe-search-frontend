@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import Profile from "./Components/Profile";
 
 function App() {
   const [user, setUser] = useState("");
@@ -22,6 +23,7 @@ function App() {
         <Route path="create-recipe" element={<CreateRecipe />} />
         <Route path="login" element={<Login setUser={setUser} user={user} />} />
         <Route path="register" element={<Register />} />
+        <Route path="profile" element={<Profile />} />
       </Routes>
       <Footer />
     </div>

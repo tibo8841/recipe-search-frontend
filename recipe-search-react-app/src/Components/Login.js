@@ -1,7 +1,9 @@
-import { getLogin, startSession, checkSessions } from "./Networking";
+import { getLogin, startSession } from "./Networking";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login() {
+  const [errorMessage, setErrorMessage] = useState(false);
   let navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -13,13 +15,11 @@ export default function Login() {
     );
     if (loginCheck.response === "User Found") {
       await startSession(loginCheck.user.id);
-      console.log(loginCheck.user.id);
-      console.log("sessions should be started");
-      console.log(await checkSessions());
       navigate("/");
       window.location.reload(false);
     } else {
       console.log(loginCheck.response);
+      setErrorMessage(true);
     }
   };
 
@@ -52,6 +52,9 @@ export default function Login() {
                 <input type="submit" className="input-button" value={"login"} />
               </div>
             </form>
+            {errorMessage ? (
+              <h5 style={{ color: "red" }}>No user found with these details</h5>
+            ) : null}
             <div className="link-text">
               <a href="/register">Don't have an account? Sign up</a>
             </div>

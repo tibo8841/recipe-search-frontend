@@ -18,7 +18,6 @@ export default function Login() {
       navigate("/");
       window.location.reload(false);
     } else {
-      console.log(loginCheck.response);
       setErrorMessage(true);
     }
   };

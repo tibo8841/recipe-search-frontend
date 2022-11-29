@@ -7,18 +7,18 @@ export default function Header() {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
+    async function checkLoggedIn() {
+      const session = await checkSessions();
+      const user = session.username;
+      const authentication = session.response;
+      if (authentication) {
+        setSessionAuthentication(true);
+        setUsername(user);
+        console.log(user);
+      }
+    }
     checkLoggedIn();
   }, []);
-
-  async function checkLoggedIn() {
-    const session = await checkSessions();
-    const user = session.username;
-    const authentication = session.response;
-    if (authentication) {
-      setSessionAuthentication(true);
-      setUsername(user);
-    }
-  }
 
   const navigate = useNavigate();
   const navigateHome = () => navigate("");

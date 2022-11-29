@@ -31,7 +31,6 @@ export async function startSession(userID) {
     body: JSON.stringify(user),
   });
   const json = await result.json();
-  await checkSessions();
   return json;
 }
 

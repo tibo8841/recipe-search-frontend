@@ -45,6 +45,8 @@ export async function endSession() {
 }
 
 export async function checkSessions() {
+  const cookies = document.cookie;
+  console.log(cookies);
   const result = await fetch(`${URL}/sessions`, {
     method: "GET",
     credentials: "include",

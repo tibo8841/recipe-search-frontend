@@ -11,7 +11,6 @@ export default function Header() {
       const session = await checkSessions();
       const user = session.username;
       const authentication = session.response;
-      console.log(session);
       if (authentication) {
         setSessionAuthentication(true);
         setUsername(user);

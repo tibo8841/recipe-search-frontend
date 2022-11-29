@@ -22,23 +22,18 @@
 
 .app-header {
   display: flex;
-  height: 7vh;
-  padding: 1vh;
   background-color: rgba(214, 159, 225, 0.297);
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .app-footer {
   display: flex;
-  height: 10vh;
   padding: 1vh;
   margin-top: 2vh;
   background-color: rgba(47, 44, 48, 0.54);
   justify-content: space-around;
   align-items: center;
-  width: 100%;
 }
 
 .app-footer h5 {
@@ -92,9 +87,6 @@
 
 .confirm-button {
   cursor: pointer;
-  height: 4vh;
-  width: 4vh;
-  padding-right: 3vh;
   font-size: large;
   transition: all 0.2s;
   text-align: center;
@@ -117,7 +109,7 @@
 }
 
 .recipe-card {
-  height: 25vh;
+  min-height: 25%;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 0.8%;

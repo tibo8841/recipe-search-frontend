@@ -29,7 +29,7 @@ export default function RecipeCard(props) {
                 : "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
             }
             onLoad={showCard}
-            style={{ height: "25vh" }}
+            style={{ height: "25vh", float: "left" }}
           />
         </Grid>
         <Grid item xs={12} sm container>

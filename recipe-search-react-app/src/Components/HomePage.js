@@ -97,7 +97,7 @@ export default function HomePage() {
             <button
               className="link-button"
               onClick={handleSubmit}
-              style={{ height: "7vh", marginTop: "1vh", width: "18.9vw" }}
+              style={{ height: "75%", marginTop: "3%", width: "100%" }}
             >
               Search
             </button>

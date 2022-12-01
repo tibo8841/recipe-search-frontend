@@ -1,5 +1,5 @@
 // const URL = "http://localhost:3030";
-const URL = "https://recipe-search-backend-production.up.railway.app";
+const URL = "https://recipe-search-backend.tibo8841.co.uk";
 
 export async function getLogin(username, password) {
   const result = await fetch(
